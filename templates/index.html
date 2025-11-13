@@ -114,7 +114,11 @@
         }
         
         // Game loop
-        setInterval(updateGame, 1000 / FPS);
+        async function gameLoop() {
+            await updateGame();
+            requestAnimationFrame(gameLoop);
+        }
+        gameLoop();
     </script>
 </body>
 </html>
