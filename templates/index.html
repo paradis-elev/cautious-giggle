@@ -75,6 +75,11 @@
             keysPressed[e.code] = false;
         });
         
+        // Clear all keys when window loses focus
+        window.addEventListener('blur', () => {
+            keysPressed = {};
+        });
+        
         async function updateGame() {
             try {
                 const response = await fetch('/api/update', {
