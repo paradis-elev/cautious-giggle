@@ -90,6 +90,9 @@
                     body: JSON.stringify({ keys: keysPressed })
                 });
                 
+                if (!response.ok) {
+                    throw new Error('Server error: ' + response.status);
+                }
                 const data = await response.json();
                 
                 // Clear canvas
