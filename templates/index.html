@@ -41,7 +41,10 @@
 <body>
     <div class="container">
         <h1>Pygame Web Edition</h1>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <canvas id="gameCanvas" width="800" height="600"
+                role="application"
+                aria-label="Interactive game canvas - use arrow keys or WASD to move blue square"
+                tabindex="0"></canvas>
         <div class="info">
             <p>Use Arrow Keys or WASD to move the blue square</p>
             <p>Running on Codespaces with pygame-ce backend</p>
