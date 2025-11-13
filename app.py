@@ -28,6 +28,12 @@ def update_game():
     data = request.json
     keys = data.get('keys', {})
     
+    # Validate keys input
+    if not isinstance(keys, dict):
+        return jsonify({'error': 'Invalid keys format: must be a dictionary'}), 400
+    if not all(isinstance(v, bool) for v in keys.values()):
+        return jsonify({'error': 'Invalid keys values: all values must be booleans'}), 400
+    
     # Move player based on key input
     if keys.get('ArrowLeft') or keys.get('KeyA'):
         player_x -= player_speed
